@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import "mixin";
+@import "variable";
+*{
+    @include initial;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Lato', sans-serif;
+}
+/*helpoer*/
+.container-fluid{
+    @include container-fluid;
+ }
+ a{
+    text-decoration: none !important;
+}
+li{
+    list-style-type: none;
+}
+
+ /*banner-section*/
+ .banner-section{
+    background-color:$white;
+     /*navbar*/
+    @include navbar-all-black($black);
+    & .main-section{
+        padding: 5rem 0;
+        color: $black;
+        & .title-section{
+            padding: 8rem 0 13rem;
+            @include width80percent;
+            & h1{
+              font-size: 10rem;
+              font-weight: 900;
+            }
+            & p{
+                margin-top: 5rem;
+                font-size: 3rem;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+// details section 
+.details{
+    padding: 0rem 0rem 10rem;
+    background-color: $white;
+    & .details_content{
+        & .box{
+            padding: 0;
+            margin-bottom: 8rem;
+            & .img-section{
+                width: 100%;
+                overflow: hidden;
+                & img{
+                    width: 100%;
+                    height: 100%;
+                    transition: transform .5s;
+                    &:hover{
+                        transform: scale(1.2);
+                    }
+                }
+            }
+            & .description-section{
+                padding: 2rem 0;
+                color: $black;
+                & h2{
+                    font-size: 2.5rem;
+                    font-weight: 400;
+                }
+                & h1{
+                    & a{
+                        color: $black;
+                        width: fit-content;
+                    font-weight: 900;
+                     font-size: 4rem;
+                     position: relative;
+                     &::before{
+                        @include before(0, none, 0.2rem, 0, $black);
+                     }
+                     &:hover::before{
+                         @include hover-before(100%);
+                     }
+                    }
+                }
+            }
+        }
+    }
+    & .button-section{
+        @include Dgrid;
+        & button{
+            @include buttonsection(23rem, $black, $white);
+        }
+    }
+    & #detalis-content{
+        display: none;
+    }
+}
+
+// contact section
+.contact{
+    @include contact-section-all;
+}
+
+//footer section
+.footer{
+    @include footer-section-all;
+}
+
+//mediaquery
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+}
+@media (max-width:991px){
+    html{
+        font-size: 50%;
+    }
+    .banner-section{
+        & .navbar{
+            @include mediaqyery-nav(0rem);
+           }
+        }
+        & .navbar.fixed{
+            height: auto;
+        }
+        & .title-section{
+            padding: 4rem 0 7rem !important;
+            & h1{
+                font-size: 8rem !important;
+            }
+        }
+}
+@media (max-width:768px){
+    html{
+        font-size: 45%;
+    }
+    .banner-section{
+        .title-section{
+            padding: 2rem 0 5rem !important;
+        }
+    }
+    .contact{
+        @include mediaquery-contact-section;
+    }
+    .footer{
+        @include mediaquery-footer-section;
+    }
+}
+@media (max-width:568px){
+    html{
+        font-size: 40%;
+    }
+    .details{
+        & .details_content{
+            width: 90%;
+            margin: 0 auto;
+            & .box{
+                margin-bottom: 5rem;
+            }
+        }
+    }
+}
+// @media (max-width:400px){
+//     .banner-section{
+//         & .main-section{
+//             & .title-section{
+//                 & h1{
+//                     font-size: 6rem !important;
+//                 }
+//             }
+//         }
+//     }
+// }

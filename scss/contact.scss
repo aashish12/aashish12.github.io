@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import "mixin";
+@import "variable";
+*{
+    @include initial;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Lato', sans-serif;
+}
+/*helpoer*/
+.container-fluid{
+    @include container-fluid;
+ }
+ a{
+    text-decoration: none !important;
+}
+li{
+    list-style-type: none;
+}
+ /*banner-section*/
+ .banner-section{
+    background:url('../images/contact/group-copy-3.png');
+     /*navbar*/
+    @include navbar-all-black($white);
+    & .main-section{
+        padding: 5rem 0 10rem;
+        color: $white;
+        & .title-section{
+            padding: 11rem 0 10rem;
+            @include width80percent;
+            & h1{
+              font-size: 10rem;
+              font-weight: 700;
+              margin-bottom: 12rem;
+            }
+            & p{
+                font-size: 3rem;
+                font-weight: 300;
+                & a{
+                    color: $white;
+                    border-bottom: .2rem solid $white;
+                }
+            }
+        }
+    }
+}
+
+//contact-team
+.contact-team{
+    background-color: $white;
+    padding: 10rem 0;
+    & .contact-team-member{
+        @include width80percent;
+        & .card{
+            border: none;
+            padding: 1rem 2rem;
+            color: $black;
+            & img{
+                width: 100%;
+                height: 100%;
+            }
+            & h5{
+                padding: 2rem 0;
+                font-size: 3rem;
+                font-weight: 700;
+            }
+            & p{
+                font-size: 2rem;
+                font-weight: 400;
+                & a{
+                    @include para-a($black);
+                }
+            }
+        }
+    }
+}
+
+//office-details
+.office-details{
+    background-color: $black;
+    padding: 10rem 0;
+    color: $white;
+    & .office-contents{
+        @include width80percent;
+        & h1{
+            font-size: 7rem;
+            font-weight: 700;
+        }
+        & h4{
+            padding: 3rem 0;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        & p{
+            font-size: 1.8rem;
+            font-weight: 350;
+            & a{
+                @include para-a($white);
+            }
+        }
+        & .office-address{
+            margin-bottom: 3rem;
+        }
+        & .Officebox{
+            margin-top: 6rem;
+            & .para-2{
+                padding: 2rem 0;
+            }
+        }
+    }
+}
+
+//contact-form
+.contact-form{
+    padding: 10rem 0;
+    background-color: $white;
+    color: $black;
+    & .form-content{
+        & .left-side-box{
+            margin-top: 3rem;
+            & h4{
+                font-size: 3rem;
+                font-weight: 700;
+            }
+        }      
+        & h1{
+            font-size: 6rem;
+            font-weight: 700;
+        }
+        @include contact-modal(2.5rem);
+    }
+}
+
+// contact section
+.contact{
+    @include contact-section-all;
+}
+
+//footer section
+.footer{
+    @include footer-section-all;
+}
+//media query
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+}
+@media (max-width:991px){
+    html{
+        font-size: 50%;
+    }
+    .banner-section{
+        & .navbar{
+            @include mediaqyery-nav(0rem);
+        }
+        & .navbar.fixed{
+            height: auto;
+        }
+        & .main-section{
+            padding: 7rem 0;
+            & .title-section{
+                padding: 5rem 0 10rem;
+            }
+        }
+    }
+}
+@media (max-width:768px){
+    html{
+        font-size: 45%;
+    }
+    .contact{
+        @include mediaquery-contact-section;
+    }
+    .footer{
+        @include mediaquery-footer-section;
+    }
+}
+@media (max-width:568px){
+    html{
+        font-size: 40%;
+    }
+    .contact-form{
+        & .form-content{
+            @include width90percent;
+        }
+    }
+}

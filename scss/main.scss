@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+@import "mixin";
+@import "variable";
+*{
+    @include initial;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Lato', sans-serif;
+}
+/*helper*/ 
+.container-fluid{
+   @include container-fluid;
+}
+a{
+    text-decoration: none !important;
+}
+li{
+    list-style-type: none;
+}
+
+/*HEADER*/
+.header{
+    background: url('../images/main-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+    /*navbar*/
+   @include navbar-all-black($white);
+    /*main-section*/ 
+    .main-section{
+        padding: 10rem 0 5rem;
+        & .main-section-content{
+            margin-left: 12rem;
+            color: $white;
+            & h1{
+                font-size: 7rem;
+                font-weight: 700;
+                & span{
+                    color:$yellow;
+                }
+            }
+            & p{
+                padding: 2rem 0;
+                font-size: 3rem;
+                font-weight: 300;
+            }
+        }  
+    }
+    /*header__logos*/ 
+    .logos-section{
+        padding: 10rem 0;
+        & h1{
+            color: $white;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-left: 2.2rem;
+            margin-bottom: 3rem;
+        }
+        & .logos{
+            width: 100%;
+            @include Dflex(space-between,center);
+            flex-wrap: wrap;
+            & li{
+                & a{
+                    & img{
+                        width: 100%;
+                    }
+                    & .xs-size-img{
+                        height: 2rem;
+                    }
+                    & .sm-size-img{
+                        height: 3rem;
+                    }
+                    & .md-size-img{
+                        height: 3.5rem;
+                    }
+                    & .lg-size-img{
+                        height: 5rem;
+                    }
+                    & .xl-size-img{
+                        height: 7rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// about-us section 
+.about__us{
+   padding: 10rem 0; 
+   & a{
+       font-size: 3rem;
+       font-weight: 700;
+       color: $black;
+       position: relative;
+        &::before{
+            @include before(0 , none, 0.1rem, 100% , $black );
+        }
+        &:hover::before{
+            @include hover-before(0);
+        }
+        &:hover{
+            color: $black !important;
+        }
+    }
+    
+    & h1{
+        font-size: 3rem;
+        font-weight: 700;
+        color: $black;
+    }
+    & p{
+        margin-top: 5rem;
+        font-size: 2rem;
+        color: $black;
+        font-weight: 400;
+    }
+}
+//service section
+.service{
+    padding: 10rem 0 5rem;
+    background-color:$black;
+    & .nav {
+        @include Dflex(space-evenly,flex-start );
+        & .nav-item{
+            width: 16.66666666666666666%;
+            height: 13rem;
+            &  .nav-link{
+                width: 92%;
+                margin: 0 auto;
+                height: 11rem;
+                color: $white;
+                border-bottom: 1rem solid $white;
+                @include Dflex(flex-start,flex-start);
+                flex-direction: column;
+                text-align: left;
+                & h1{
+                    font-weight: 700;
+                    font-size: 2.5rem;
+                }
+                & p{
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                }
+            }
+            &  .nav-link.active{
+                background-color: transparent;
+                border-bottom: 1rem solid $faux-medium;
+            }
+        }
+    }
+    & .tab-content{
+        & h1{
+            padding: 5rem 0;
+            font-size: 7rem;
+            font-weight: 900;
+            color:$white;
+        }
+        & .row{
+            & li{
+                width: 90%;
+                border-bottom: .1rem solid $white;
+                margin-bottom: 1rem;
+                padding: .5rem 0;
+                font-size: 1.5rem;
+                font-weight: 400;
+                color: white;
+            }
+        }
+        & h2{
+            padding: 8rem 0 0;
+            & a{
+                border-bottom: .3rem solid white;
+                color: $white;
+                font-size: 3rem;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+//  News section 
+.news{
+    background-color: $white;
+    padding: 10rem 0 5rem;
+    & .news-content{
+        & h1{
+            padding-bottom: 8rem;
+            &  a{
+                @include header_a();
+            }
+        }
+       & .newsbox{
+           padding: 1rem;
+           & h4{
+            font-size: 1.4rem;
+            color: $hex;
+            margin-bottom: 2rem;
+        }
+        & h1 a{
+            font-size: 3.7rem;
+            color: $black;
+            font-weight: 700;
+            &::before{
+                @include before(0, none, 0, 0, none);
+             }
+        }
+       }
+    }
+    & .news-carousel{
+        .carousel-inner{
+            position: relative;
+            height: 90vh;
+            color: $white;
+            & h2{
+                position: absolute;
+                top: 10%;
+                left: 10%;
+                z-index: 1;
+                & a{
+                    color: $white;
+                    font-size: 3rem;
+                    font-weight: 700;
+                    position: relative;
+                &::before{
+                    @include before(0, none, 0.1rem, 100%, $white);
+                 }
+                 &:hover::before{
+                     @include hover-before(0);
+                 }
+                }
+            }
+            & .img-description{
+                position: absolute;
+                top:25%;
+                left: 10%;
+                & p{
+                    font-size: 1.5rem;
+                    font-weight: 400;
+                }
+                & h1{
+                    font-size: 7rem;
+                    font-weight: 900;
+                    margin-bottom: 1rem;
+                }
+                & h4{
+                    font-size: 2.8rem;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+    & .news-description{
+        padding-top: 10rem;
+        @include width90percent;
+        color: $black;
+        text-align: center;
+        & h2{
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 5rem;
+            & span{
+                font-weight: 900;
+            }
+        }
+        & h3{
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            & a{
+                color: $black;
+            }
+        }
+        & p{
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 5rem;
+        }
+    }
+}
+
+
+// Career section 
+.career{
+    padding: 10rem 0 3rem;
+    & h1{
+        padding-bottom: 8rem;
+        & a{
+            color: $black;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+    }
+    & .career-content{
+        margin-left: 12rem !important;
+        & .nav{
+            position: sticky;
+            top: 10rem;
+            width: 70%;
+            @include Dflex(flex-start,flex-start );
+         & .nav-link{
+                color: $hex;
+                font-size: 2.5rem;
+                font-weight: 700;
+            }
+            &  .nav-link.active{
+                background-color: transparent;
+                color: $black;
+            }
+        }
+        & .tab-content{
+            width: 100%;
+            & .career-description{
+               & .row{
+                  .career-box{
+                      padding: 1rem 2rem;
+                    & .course-video{
+                        height:20vh;
+                        background-color: $hex;
+                    }
+                    & .course-description{
+                        & .course-title{
+                            & h3{
+                                font-size: 2.8rem;
+                                font-weight: 600;
+                                padding-top: 1rem;
+                            }
+                        }
+                        & .course_sub-title{
+                            & p{
+                             font-size: 1.8rem;
+                             font-weight: 600;
+                            }
+                        }
+                    }
+                  }
+               }
+            }
+        }
+    }
+}
+
+
+// contact section
+.contact{
+  @include contact-section-all;
+}
+
+//footer section
+.footer{
+   @include footer-section-all;
+}
+
+//media quries
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+     .main-section{
+        padding: 5rem 0  !important;
+        & .main-section-content{
+            & h1{
+                font-size: 8rem !important;
+            }
+        }
+    }
+     .logos-section{
+        padding: 0 0 10rem 0 !important;
+    }
+     .service{
+        & .nav-link{
+            height: 13rem !important;
+        }
+    }
+}
+@media (max-width:991px){
+    html{
+        font-size: 50%;
+    }
+    .navbar{
+        @include mediaqyery-nav(5rem);
+    }
+    // .navbar.fixed{
+    //     height: auto;
+    // }
+    & .main-section{
+        padding: 5rem 0 0 0 !important;
+    }
+    & .logos-section{
+        padding: 5rem 0 !important;
+        & li{
+            margin-bottom: 1rem;
+        }
+    }
+    & .about__us{
+        padding: 5rem 0;
+    }
+    & .news{
+        padding: 5rem 0;
+        & .news-content{
+            & h1{
+                padding-bottom: 5rem;
+            }
+        }
+        & .carousel-inner{
+            height: auto !important;
+        }
+    }
+    & .career{
+        & .career-content{
+            & .nav{
+                top: 12rem;
+                & .nav-link:focus{
+                    display: none;
+                }
+            }
+            & .career-box{
+                margin-bottom: 2rem;
+                & .course-description{
+                    text-align: center;
+                }
+            }
+        }
+    }
+    & .service{
+        padding: 5rem 0;
+        & .nav-link{
+            text-shadow: none;
+            outline: none;
+            & h1{
+                font-size: 2rem !important;
+            }
+            & p{
+                font-size: 1.2rem !important;
+            }
+        }
+    }
+}
+
+@media (max-width:768px){
+    html{
+        font-size: 45%;
+    }
+    .modal{
+        & .btn-close{
+            padding: 2rem 3rem !important;
+        }
+        & .contactqueries-box{
+            margin-bottom: 5rem !important;
+        }
+    }
+    .main-section{
+        & .main-section-content{
+            margin-left: 6rem !important;
+            & h1{
+                font-size: 6rem !important;
+            }
+        }
+    }
+    .service{
+        & .tab-content{
+            & .img-box{
+                padding: 0 0 5rem 0;
+            }
+        }
+    }
+    .career{
+        & .career-content{
+            margin-left: 5rem !important;
+            & .career-info{
+                padding: 0 1rem 2rem !important;
+            }
+        }
+    }
+    .contact{
+        @include mediaquery-contact-section;
+    }
+    .footer{
+        @include mediaquery-footer-section;
+    }
+}
+
+@media (max-width:568px){
+    html{
+        font-size: 40%;
+    }
+    .main-section{
+        & .main-section-content{
+            // margin-left: 6rem !important;
+            & h1{
+                font-size: 5rem !important;
+            }
+            & p{
+                font-size: 2rem;
+            }
+        }
+    }
+    .about__us{
+        & .container{
+            width: 90% ;
+            margin: 0 auto;
+            & h1{
+                margin-top: 3rem;
+            }
+        }
+    }
+    .career{
+        & .career-content{
+            margin-left: 0 !important;
+            & .nav{
+                & .nav-link{
+                    font-size: 2.3rem;
+                }
+            }
+            & .career-box{
+                padding: 1rem 0rem !important;
+            }
+        }
+    }
+    .carousel-inner{
+        & .img-description{
+            top: 30%;
+            & p{
+                font-size: .5rem !important;
+            }
+            & h1{
+                font-size: 3rem !important;
+            }
+            & h4{
+                font-size: 1.8rem !important;
+            }
+        }
+    }
+    & .service{
+        & .nav-link{
+            height: 7rem !important;
+            & h1{
+                font-size: 1.6rem !important;
+            }
+            & p{
+             display: none;
+        }
+    }
+    & .tab-content{
+        & h1{
+            font-size: 5rem ;
+        }
+        & li{
+            font-size: 2rem !important;
+        }
+    }
+  }
+}
+@media (max-width:400px){
+   .news-description{
+       & h3{
+           text-align: left !important;
+       }
+   }
+}
+@media (max-width:330px){
+
+    .career{
+        & .nav{
+            & .nav-link{
+                font-size: 2.2rem !important;
+            }
+        }
+        & .career-box{
+            & .course-description{
+                & h3{
+                    font-size: 2.5rem !important;
+                }
+            }
+        }
+    }
+}

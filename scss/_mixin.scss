@@ -1,0 +1,477 @@
+@mixin Dflex($jc, $ai){
+    display: flex;
+    justify-content:$jc;
+    align-items: $ai;
+}
+@mixin before($left, $right,$hight, $width, $bg){
+    content: '';
+    position: absolute;
+    right: $right;
+    left: $left;
+    height: $hight;
+    width: $width;
+    bottom: 0;
+    background-color:$bg;
+    transition: $transition;
+}
+@mixin hover-before($width){
+        right: 0;
+        width: $width;
+}
+@mixin header_a{
+                color: $black;
+                font-size: 3rem;
+                font-weight: 700;
+                position: relative;
+                &::before{
+                    @include before(0, none, 0.1rem, 100%, $black);
+                 }
+                 &:hover::before{
+                     @include hover-before(0);
+                 }
+}
+@mixin container-fluid {
+    width: 90% !important;
+    margin: 0 auto !important;
+}
+
+@mixin initial {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin width90percent {
+    width: 90%;
+    margin: 0 auto;
+}
+@mixin width80percent {
+    width: 83%;
+    margin: 0 auto;
+}
+@mixin width70percent {
+    width: 70%;
+    margin: 0 auto;
+}
+@mixin Dgrid{
+    display: grid;
+    place-items: center;
+}
+@mixin  buttonsection($btn-width, $bg ,$color){
+            outline: none;
+            padding: 1.5rem;
+            width: $btn-width;
+            background-color: $bg;
+            color: $color;
+            font-size: 1.8rem;
+            font-weight: 900;
+            transition: $transition;
+            border: .2rem solid $black;
+            border-radius: 0;
+            &:hover{
+                border: .2rem solid $black;
+              color: $black;
+              background-color: $white;
+            }
+}
+@mixin para-a($color){
+    color: $color;
+    border-bottom:.1rem solid $color;
+}
+@mixin navbar-fixed{
+    width: 100%;
+        height: 8rem;
+        background-color: $black !important;
+        position: fixed;
+        z-index: 30;
+        animation: fixHeader .5s ease;
+}
+
+@mixin mediaqyery-nav($ml){
+    height: 10vh !important;
+    align-items: center !important;
+    & .container-fluid{
+        width: 100% !important;
+        & .navbar-collapse{
+           padding: 5rem 0;
+        }
+    }
+        & ul{
+            @include Dflex(center,center);
+            margin-left: 0;
+            & li{
+                margin-bottom: 1rem;
+                & .nav-link{
+                    color: $white !important;
+                    font-size: 3rem !important;
+                }
+            }
+        }
+        & form{
+            @include Dflex(center,center);
+            margin-top: 5rem !important;
+            margin-left: $ml;
+            & .btn{
+                border: .2rem solid $white !important;
+                color: $white !important;
+                font-size: 3rem !important;
+            }
+        }
+}
+
+@mixin mediaquery-contact-section{
+    & h1{
+        & a{
+            font-size: 3.5rem;
+        }
+    }
+    & .contact-content{
+        & h3{
+            font-size: 3rem !important;
+        }
+        & p{
+            font-size: 2rem !important;
+        }
+    }
+}
+
+@mixin mediaquery-footer-section{
+    & h3{
+        & a{
+            font-size: 2.2rem;
+        }
+    }
+}
+@mixin navbar-toggler($color){
+          border:0rem !important;
+          color: transparent !important;
+          & .navbar-toggler-icon{
+              height: 3rem;
+              width: 3rem;
+              & i{
+                color: $color;
+                font-size: 3rem;
+              }
+              & #menucross{
+                  display: none;
+                  color: $white;
+                  font-size: 3rem;
+              }
+            & i.color-change{
+                color:$white !important;
+            }
+          }
+}
+@mixin navbar-all-black($togglercolor) {
+    & .navbar{
+          height: 15vh;
+          @include Dflex(none, flex-end);
+          & .container-fluid.toggle-nav{
+              background-color: $black;
+          }
+          & .navbar-toggler{
+            @include navbar-toggler($togglercolor);
+        }
+          & .navbar-brand img{
+              height: 4.5rem;
+              cursor: pointer;
+          }
+          & ul{
+              margin-left:5rem;
+              & .nav-link{
+                color: $togglercolor !important;
+                font-size: 2rem;
+                font-weight: 700;
+                padding-bottom: 0 !important;
+                padding: 0;
+                margin-right: 1rem;
+                position: relative;
+                &::before{
+                   @include before(0, none, 0.1rem, 0, $white);
+                }
+                &:hover::before{
+                    @include hover-before(100%);
+                }
+            }
+            & .nav-link.active{
+                position: relative;
+                &::before{
+                    @include before(none , 0, 0.1rem ,2rem, $white );
+                }
+                &:hover::before{
+                    @include hover-before(100%);
+                }
+            }
+            & .nav-link.fullactive{
+                position: relative;
+                &::before{
+                    @include before(none , 0, 0.1rem ,100%, $white );
+                }
+                &:hover::before{
+                    @include hover-before(100%);
+                }
+            }
+          }
+          & form .btn{
+              color: $togglercolor;
+              border: .2rem  solid $togglercolor;
+              border-radius:0 !important;
+              font-size: 1.5rem;
+              font-weight: 700;
+              outline: none;
+              padding: .5rem 1.5rem;
+              transition: $transition;
+              &:hover{
+                color: $black;
+                background-color: $white;
+              }
+          }
+        }
+    & .navbar.fixed{
+        @include navbar-fixed;
+        & .nav-link{
+                color:$white !important;
+            }
+            & .btn{
+                color: $white;
+                border: .2rem solid $white;
+            }
+         }
+    & .navbar.bg-black{
+            background-color: $black;
+        }
+    @keyframes fixHeader{
+            0%{
+                transform: translateY(-100%);
+            }
+            100%{
+                transform: translateY(-0%);
+            }
+        }
+    & .modal{
+        @include contact-modal-main;
+    }
+}
+@mixin contact-section-all {
+    padding: 10rem 0 2rem;
+    background-color: $black;
+    & h1{
+        padding-bottom: 8rem;
+        & a{
+            color: $white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            &::before{
+                @include before(0, none, 0.1rem, 100%, $white);
+             }
+             &:hover::before{
+                 @include hover-before(0);
+             }
+        }
+    }
+    & .contact-content{
+        color: $white;
+        & .contact-box{
+            margin-bottom: 6rem;
+            & h3{
+                font-size: 2rem;
+                font-weight: 700;
+             }
+             & p{
+                 font-size: 1.4rem;
+             }
+        }
+    }
+}
+@mixin footer-section-all {
+    padding: 8rem 0;
+    background-color: $black;
+    & h3{
+        margin-bottom: 1rem;
+        & a{
+            color: $white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+    }
+}
+@mixin media-section{
+    background-color: $black;
+    padding: 10rem 0 1rem;
+    & .media-content{
+        padding-bottom: 9rem;
+        @include width90percent;
+        color: $white;
+        & h1{
+            font-size: 2.8rem;
+            font-weight: 900;
+            & a{
+                color: $white;
+            }
+        }
+        & .img-box-hide{
+            display: none;
+            margin-top: 10rem;
+            & img{
+                width: 45%;
+            }
+        }
+        & .Mbox{
+            margin-top: 5rem;
+            padding: 2rem;
+            & h3{
+                font-size: 1.7rem;
+                font-weight: 900;
+                margin-bottom: 2rem;
+            }
+            & p{
+                font-size: 1.5rem;
+                font-weight: 400;
+                & a{
+                    margin-left: .5rem;
+                    color: $white;
+                    border-bottom: .1rem solid $white;
+                }
+            }
+        }
+        & .img-box{
+            @include Dgrid;
+           & img{
+               width: 55%;
+           }
+        }
+    }
+}
+@mixin contact-modal($fs){
+    & h5{
+        padding: 3rem 0 0rem;
+        font-size: $fs;
+        font-weight: 700;
+    }
+    & .checkbox{
+        ul.ks-cboxtags {
+            list-style: none;
+            padding: 2rem 0;
+            & li{
+                display: inline;
+                margin-right: 1.5rem;
+                & input[type="checkbox"]{
+                    position: absolute;
+                    opacity: 0;
+                    display: absolute;
+                    &:checked + label {
+                        border: .2rem solid $black;
+                        background-color: $black;
+                        color: $white;
+                        transition: all .2s;
+                        margin-bottom: 1.5rem;
+                        &::before{
+                            font-family: "Font Awesome 5 Free";
+                            font-weight: 900;
+                            content: "\f00c";
+                            transform: rotate(-360deg);
+                            transition: transform .3s ease-in-out;
+                        }
+                    }
+                    &:focus + label{
+                        border: .2rem solid $black;
+                    }
+                }
+                & label{
+                    display: inline-block;
+                    background-color: rgba(255, 255, 255, .9);
+                    border: .2rem solid $black;
+                    color: black;
+                    font-size: 1.5rem;
+                    border-radius: 0;
+                    white-space: nowrap;
+                    padding: .8rem 1.2rem;
+                    margin: 3px 0px;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    -webkit-tap-highlight-color: transparent;
+                    transition: all .2s;
+                    font-weight: 700;
+                    cursor: pointer;
+                    margin-bottom: 1.5rem;
+                    &::before{
+                        display: inline-block;
+                        font-style: normal;
+                        font-variant: normal;
+                        text-rendering: auto;
+                        -webkit-font-smoothing: antialiased;
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        font-size: 12px;
+                        padding: .5rem 1.5rem .5rem 0rem;
+                        content: "\f067";
+                        transition: transform .3s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+    & form {
+        & .form-control{
+            border: none;
+            border-bottom: .1rem solid $black;
+            margin-bottom: 2rem;
+            padding: 1.5rem 0;
+            font-size: 2rem;
+                font-weight: 700;
+            &::placeholder{
+                color: $black;
+                font-size: 2rem;
+                font-weight: 700;
+            }
+        }
+        & .form-control:focus{
+            box-shadow: none;
+        }
+        & button{
+            width: 100%;
+            border-radius: 0 !important;
+            background-color: $black;
+            border: .2rem solid $black;
+            font-size: 2rem;
+            font-weight: 700;
+            padding: 1.5rem 0;
+            &:hover{
+                background-color: $white;
+                color: $black;
+            }
+        }
+    }
+}
+@mixin contact-modal-main{
+    & .modal-dialog{
+        max-width: none;
+        margin: 0;
+        & .modal-content{
+            @include Dflex(space-between, none);
+            flex-direction: row-reverse;
+            border: 0;
+            border-radius: 0;
+            & .btn-close{
+             font-size: 2rem;
+             opacity: 1;
+             padding: 2rem 1rem;
+             &:focus{
+                 box-shadow: none;
+             }
+         }
+            & .contact-modal{
+                @include Dflex(center, none);
+             & .contactqueries-box{
+                 margin-bottom: 9rem;
+                 width: 60%;
+                 @include contact-modal(2rem);
+                }
+            }
+        }
+    }
+}

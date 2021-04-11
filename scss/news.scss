@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import "mixin";
+@import "variable";
+*{
+    @include initial;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Lato', sans-serif;
+}
+/*helpoer*/
+.container-fluid{
+    @include container-fluid;
+ }
+ a{
+    text-decoration: none !important;
+}
+li{
+    list-style-type: none;
+}
+ /*banner-section*/
+ .banner-section{
+    background-color:$white;
+     /*navbar*/
+    @include navbar-all-black($black);
+    & .main-section{
+        padding: 12rem 0 10rem;
+        color: $black;
+        & .title-section{
+            padding: 8rem 0 13rem;
+            @include width80percent;
+            & h1{
+              font-size: 10rem;
+              font-weight: 900;
+            }
+            & p{
+                font-size: 3rem;
+                font-weight: 400;
+            }
+        }
+    }
+}
+// details section 
+.details{
+    padding: 0rem 0rem 10rem;
+    background-color: $white;
+    & .details_content{
+        & .box{
+            margin-bottom: 1rem;
+            padding: 2.5rem 3rem;
+            & .img-section{
+                width: 100%;
+                overflow: hidden;
+                & img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            & .description-section{
+                padding: 2rem 0;
+                & p{
+                    color: $hex;
+                    font-size: 1.4rem;
+                    font-weight: 400;
+                }
+                & h1{
+                    & a{
+                        color: $black;
+                        width: fit-content;
+                        font-weight: 900;
+                        font-size: 3.5rem;
+                        position: relative;
+                        &::before{
+                          @include before(0, none, 0.2rem, 0, $black);
+                        }
+                        &:hover::before{
+                           @include hover-before(100%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//newsbox section
+.newsbox_section{
+    padding: 0 0 10rem;
+    & .newsbox_content{
+        & .Nbox{
+            margin-bottom: 5rem;
+            padding: 1rem 1.5rem;
+            & p{
+                font-size: 1.4rem;
+                font-weight: 400;
+                color: $hex;
+            }
+            & h2{
+                font-size: 3.7rem;
+                font-weight: 900;
+                & a{
+                color: $black;
+                }
+            }
+        }
+    }
+    & .button-section{
+        @include Dgrid;
+        & button{
+            @include buttonsection(20rem, $black, $white);
+        }
+        & .whitebg{
+            @include buttonsection(20rem, $white, $black);
+        }
+    }
+    & #newsbox1, #newsbox2, #newsbox3, #newsbox4, #newsbox5{
+        display: none;
+    }
+    & #show_btn2, #show_btn3,#show_btn4, #show_btn5 {
+        display: none;
+    }
+}
+
+//media contact
+.contact_media-section{
+    @include media-section;
+ }
+
+// contact section
+.contact{
+    @include contact-section-all;
+}
+
+//footer section
+.footer{
+    @include footer-section-all;
+}
+
+//mediaquery
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+}
+@media (max-width:991px){
+    html{
+        font-size: 50%;
+    }
+    .banner-section{
+        & .navbar{
+            @include mediaqyery-nav(0rem);
+        }
+        & .navbar.fixed{
+            height: auto;
+        }
+        & .main-section{
+            padding: 7rem 0;
+            & .title-section{
+                padding: 5rem 0 10rem;
+            }
+        }
+    }
+}
+@media (max-width:768px){
+    html{
+        font-size: 45%;
+    }
+    .banner-section{
+        & .main-section{
+            padding: 5rem ;
+        }
+    }
+    .contact_media-section{
+        & .media-content{
+            width: 100%;
+            & h1{
+                font-size: 4rem;
+            }
+            & .img-box-hide{
+                display: block;
+            }
+            & .Mbox{
+                & h3{
+                    font-size: 3rem !important;
+                    margin-bottom: 5rem;
+                }
+                & p{
+                    font-size: 2.5rem !important;
+                }
+            }
+            & .img-box{
+                display: none;
+            }
+        }
+    }
+    .contact{
+        @include mediaquery-contact-section;
+    }
+    .footer{
+        @include mediaquery-footer-section;
+    }
+}
+@media (max-width:590px){
+    .contact_media-section{
+        & .media-content{
+            width: 90%;
+            & .img-box-hide{
+                margin-top: 7rem;
+            }
+        }
+    }
+}
+@media (max-width:568px){
+    html{
+        font-size: 40%;
+    }
+    .details{
+        & .details_content{
+            @include width90percent;
+        }
+    }
+    .newsbox_section{
+        & .newsbox_content{
+            @include width90percent;
+        }
+    }
+}

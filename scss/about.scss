@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import "mixin";
+@import "variable";
+*{
+    @include initial;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Lato', sans-serif;
+}
+/*helpoer*/
+.container-fluid{
+    @include container-fluid;
+ }
+ a{
+    text-decoration: none !important;
+}
+li{
+    list-style-type: none;
+}
+
+
+ /*banner-section*/
+.banner-section{
+    background-color:$black;
+     /*navbar*/
+     @include navbar-all-black($white);
+    & .main-section{
+        padding: 5rem 0;
+        color: $white;
+        & .title-section{
+            padding: 8rem 0 13rem;
+            @include width80percent;
+            & h1{
+              font-size: 9rem;
+              font-weight: 900;
+            }
+        }
+         & .description-section{
+             width: 92%;
+             margin: 0 auto;
+             & h2{
+                 font-size: 3.2rem;
+                font-weight: 700;
+             }
+             & h1{
+                 font-size: 3.8rem;
+                 font-weight: 700;
+                 margin-bottom: 4rem;
+             }
+             & p{
+                 font-size: 1.8rem;
+                 font-weight: 400;
+             }
+         }
+    }
+}
+
+// details section 
+.details{
+    background-color: $white;
+    padding: 10rem 0;
+    & .service{
+        padding: 5rem 0 3rem;
+        & .service-img{
+            display: none;
+            padding: 5rem 0;
+        }
+        & h1{
+            color: $black;
+            font-size: 7rem;
+            font-weight: 700;
+            margin-bottom: 8rem;
+        }
+    & .row{
+        & .green-bg{
+            background-color: $green;
+        }
+        & .blue-bg{
+            background-color: $blue;
+        }
+        & .red-bg{
+            background-color: $red;
+        }
+        & .yellow-bg{
+            background-color: $yellow;
+        }
+        & .sblue-bg{
+            background-color: $sky-blue;
+        }
+        & .dyellow-bg{
+            background-color: $dark-yellow;
+        }
+        & .img-section{
+            width: 90%;
+            display: grid;
+            place-items: center;
+            & .img-logo{
+                padding: 10rem 0;
+            }
+            & .img-url{
+                padding: 0rem 0rem 10rem;
+                & a{
+                    color: $white;
+                    border-bottom: .2rem solid $white;
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+            }
+        }
+        & .service-description-section{
+           & p{
+               font-size: 2rem;
+               font-weight: 350;
+               color: $black;
+           }
+           & .row{
+               padding: 3rem 0 0;
+               & li{
+                   width: 90%;
+                   font-size: 1.8rem;
+                   font-weight: 350;
+                   color: $black;
+                   padding: 1rem 0;
+                   border-bottom: .1rem solid $black;
+               }
+           }
+        }
+    }
+    }
+}
+
+//award section
+.award{
+    padding: 15rem 0;
+    background-image: url('../images/info-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    & .award-content{
+        @include width90percent;
+        color:$white;
+        & .row{
+            & div{
+                display: grid;
+                place-items: center;
+                & h1{
+                    font-size: 9rem;
+                    font-weight: 800;
+                }
+                & h2{
+                    font-size: 4rem;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+
+//team section
+.team{
+    padding: 10rem 0 3rem;
+    background-color: $white;
+    & .team-content{
+        @include width90percent;
+       & h1{
+           padding-bottom: 5rem;
+           font-size: 8rem;
+           font-weight: 900;
+           color: $black;
+       }
+       & .team-members{
+           & .card{
+               width: 90%;
+               border: none;
+               color: $black;
+               padding-bottom: 8rem;
+               & .card-body{
+                   padding: 1rem 0;
+                   & h2{
+                    font-size: 2.8rem;
+                    font-weight: 700;
+                }
+                & p{
+                    font-size: 2rem;
+                    font-weight: 400;
+                }
+               }
+           }
+       }
+    }
+}
+
+// contact section
+.contact{
+    @include contact-section-all;
+}
+
+//footer section
+.footer{
+    @include footer-section-all;
+}
+
+//media query
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+}
+@media (max-width:991px){
+    html{
+        font-size: 50%;
+    }
+    & .banner-section{
+        & .navbar{
+            @include mediaqyery-nav(0rem);
+        }
+        & .navbar.fixed{
+            height: auto;
+        }
+        & .main-section{
+            & .title-section{
+                padding: 2rem 0 5rem ;
+                & h1{
+                    font-size: 6rem;
+                }
+            }
+        }
+    }
+    
+    & .details{
+        padding: 5rem 0;
+        & .detais_content{
+          & .service{
+            padding: 3rem 0;
+            & h1{
+                margin-bottom: 4rem;
+            }
+            & .img-section{
+                & .img-logo{
+                    padding: 7rem 0;
+                    width: 80%;
+                    & img{
+                        width: 100%;
+                    }
+                }
+                & .img-url{
+                    padding: 0 0 5rem;
+                }
+            }
+          }
+        }
+    }
+    & .award{
+        padding: 12rem 0;
+        & .award-content{
+            & h1{
+                font-size: 6rem !important;
+            }
+            & h2{
+                font-size: 3rem !important;;
+            }
+        }
+    }
+    & .team{
+        padding: 5rem 0;
+        & .team-content{
+            & h1{
+                font-size: 7rem;
+            }
+        }
+    }
+}
+@media (max-width:768px){
+    html{
+        font-size: 45%;
+    }
+    .banner-section{
+        & .main-section{
+            & .title-section{
+                padding: 2rem 0;
+                // margin-left: 5rem;
+                & h1{
+                    font-size: 5rem;
+                }
+            }
+            & .description-section{
+                & h2{
+                    padding: 3rem 0;
+                }
+                & h1{
+                    font-size: 3rem;
+                }
+                & p{
+                    font-size: 2.2rem;
+                }
+            }
+        }
+    }
+    .details{
+        padding: 3rem 0;
+        & .service{
+            .service-img{
+                display: block;
+            }
+            & h1{
+                font-size: 5rem;
+                font-weight: 900;
+            }
+            & .row{
+                flex-direction: column-reverse;
+                & .img-section{
+                    width: 100%;
+                    margin-top: 5rem;
+                    & .img-logo{
+                        display: none;
+                    }
+                    & .img-url{
+                        padding: 3rem 0;
+                    }
+                }
+                & .service-description-section{
+                    p{
+                        font-weight: 400;
+                    }
+                    & li{
+                        font-weight: 400 !important;
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+    .award{
+        & .award-content{
+            & h1{
+                font-size: 10rem !important;
+                font-family: 900;
+            }
+            & p{
+                font-size: 4rem !important;
+            }
+            & .award-box{
+                padding: 5rem 0;
+            }
+        }
+    }
+    .team{
+        padding: 3rem 0;
+        & .team-content{
+            & h1{
+                font-size: 5rem;
+            }
+            & .card{
+                padding-bottom: 5rem !important;
+            }
+        }
+    }
+    .contact{
+        @include mediaquery-contact-section;
+    }
+    .footer{
+        @include mediaquery-footer-section;
+    }
+}
+
+@media (max-width:568px){
+    html{
+        font-size: 40%;
+    }
+    
+    .detais_content{
+        width: 90%;
+        margin: 0 auto;
+        & .service{
+            & .service-img{
+                width: 50%;
+            }
+            & h1{
+                font-size: 4rem !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import "mixin";
+@import "variable";
+*{
+    @include initial;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Lato', sans-serif;
+}
+/*helper*/ 
+.container-fluid{
+   @include container-fluid;
+}
+a{
+    text-decoration: none !important;
+}
+li{
+    list-style-type: none;
+}
+
+/*HEADER*/
+.header{
+    background: url('../images/projectDetails/Cathlons_Case_Header_D.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 198vh;
+    /*navbar*/
+   @include navbar-all-black($white);
+   & .main-section{
+       width: 100%;
+       @include Dgrid;
+    padding: 5rem 0 10rem;
+    color: $white;
+    & .title-section{
+        text-align: center;
+        width: 50%;
+        margin: 0 auto;
+        @include Dgrid;
+        padding: 5rem 0 10rem;
+        & h1{
+          font-size: 10rem;
+          font-weight: 700;
+        }
+        & p{
+            font-size: 2.8rem;
+            font-weight: 300;
+        }
+    }
+}
+    
+}
+
+//videos
+.details{
+    padding: 10rem 0;
+    background-color: $white;
+        & .deatils_content{
+            padding: 5rem 0;
+            @include width80percent;
+            & .description_section{
+                @include width70percent;
+                color: $black;
+                & h3{
+                    font-size: 4rem;
+                    font-weight: 700;
+                    margin-bottom: 3rem;
+                }
+                & p{
+                    font-size: 2.3rem;
+                    font-weight: 300;
+                }
+            }
+            & .video_section{
+                padding: 10rem 0 5rem;
+                & .video_wrap{
+                    position: relative;
+                    height: 80vh;
+                    width: 100%;
+                    & iframe{
+                        border: .1rem solid $black;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    & .video_thumbnail{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        & img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                        & .video_play{
+                            position: absolute;
+                            background-image: url('../images/projectDetails/video-play.png');
+                            background-position: center;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            top: 50%;
+                            left: 50%;
+                            width: 10.4rem;
+                            height: 10.4rem;
+                            transform: translate(-50%, -50%);
+                            border-radius: 50%;
+                            border: 0;
+                            outline: 0;
+                            text-shadow: 0;
+                            &:hover{
+                                background-image: url('../images/projectDetails/video-play-hover.png');
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        & .customer_content{
+            @include width80percent;
+            & .customer_details{
+                @include width70percent;
+                & .customer-box{
+                    // width: 59%;
+                    & h3{
+                        color: $black;
+                        font-size: 2.3rem;
+                        font-weight: 700;
+                        margin-bottom: 3rem;
+                    }
+                }
+                
+            }
+        }
+}
+// contact section
+.contact{
+    @include contact-section-all;
+  }
+  
+  //footer section
+  .footer{
+     @include footer-section-all;
+  }
+
+//media quries
+@media (max-width:1400px){
+    html{
+        font-size: 57%;
+    }
+    .main-section{
+        & h1{
+            font-size: 8rem !important;
+        }
+    }
+}
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+     .main-section{
+        padding: 5rem 0  !important;
+    }
+}
+@media (max-width:991px){
+    html{
+        font-size: 50%;
+    }
+    .header{
+        height: 150vh;
+        & .navbar{
+            @include mediaqyery-nav(5rem);
+        }
+        & .main-section{
+            & h1{
+                font-size: 6rem !important;
+            }
+        }
+    }
+    .video_wrap{
+        height: 70vh !important;
+        & .video_play{
+            height: 8.4rem !important;
+            width: 8.4rem !important;
+        }
+    }
+}
+@media (max-width:768px){
+    html{
+        font-size: 45%;
+    }
+    .header{
+        height: 100vh;
+        & .main-section{
+            & h1{
+                font-size: 5rem !important;
+            }
+            & p{
+                font-size: 2.5rem !important;
+            }
+        }
+    }
+    .details{
+        padding: 5rem 0;
+        & .deatils_content{
+            padding: 2rem 0;
+            & .description_section{
+                & p{
+                    font-weight: 400;
+                }
+            }
+            & .video_section{
+                padding: 5rem 0 2rem;
+               & .video_wrap{
+                height: 50vh !important;
+            }
+            }
+        }
+    }
+    
+    .contact{
+        @include mediaquery-contact-section;
+    }
+    .footer{
+        @include mediaquery-footer-section;
+    }
+}
+@media (max-width:558px){
+    html{
+        font-size: 40%;
+    }
+    .header{
+        height: 80vh;
+        & .main-section{
+            & p{
+                font-weight: 400;
+            }
+        }
+    }
+    .video_wrap{
+        height: 40vh !important;
+        & .video_play{
+            height: 6.4rem !important;
+            width: 6.4rem !important;
+        }
+    }
+}
+@media (max-width:420px){
+    html{
+        font-size: 35%;
+    }
+    .video_wrap{
+        height: 30vh !important;
+        & .video_play{
+            height: 8.4rem !important;
+            width: 8.4rem !important;
+        }
+    }
+}
+

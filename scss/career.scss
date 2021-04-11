@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import "mixin";
+@import "variable";
+*{
+    @include initial;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Lato', sans-serif;
+}
+/*helpoer*/
+.container-fluid{
+    @include container-fluid;
+ }
+ a{
+    text-decoration: none !important;
+}
+li{
+    list-style-type: none;
+}
+ /*banner-section*/
+ .banner-section{
+    background-color:$white;
+     /*navbar*/
+     @include navbar-all-black($black);
+    & .main-section{
+        padding: 12rem 0 0rem;
+        color: $black;
+        & .title-section{
+            padding: 8rem 0 8rem;
+            @include width80percent;
+            & h1{
+              font-size: 10rem;
+              font-weight: 900;
+              margin-bottom: 3rem;
+            }
+            & p{
+                font-size: 3rem;
+                font-weight: 400;
+                & a{
+                    color: $black;
+                    border-bottom: .2rem solid $black;
+                }
+            }
+        }
+    }
+}
+
+// image section 
+.image-section{
+    padding: 5rem 0 10rem;
+    & img{
+        width: 100%;
+    }
+}
+
+// job section 
+.career{
+    padding: 0rem 0 3rem;
+    & h1{
+        padding-bottom: 8rem;
+        & a{
+            color: $black;
+            font-size: 3rem;
+            font-weight: 900;
+        }
+    }
+    & .career-content{
+        margin-left: 12rem !important;
+        & .nav{
+            position: sticky;
+            top: 10rem;
+            width: 70%;
+            @include Dflex(flex-start,flex-start );
+         & .nav-link{
+                color: $hex;
+                font-size: 2.5rem;
+                font-weight: 900;
+            }
+            &  .nav-link.active{
+                background-color: transparent;
+                color: $black;
+            }
+        }
+        & .tab-content{
+            width: 75%;
+            & .career-description{
+                & .career-info{
+                    color: $black;
+                    padding: 0 1rem 8rem;
+                    & h1 {
+                        padding: 0;
+                        & a{
+                            font-size: 4rem;
+                            font-weight: 900;
+                        }
+                    }
+                    & p{
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+//media contact
+.contact_media-section{
+   @include media-section;
+}
+//footer section
+.footer{
+    @include footer-section-all;
+}
+
+//media query
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+}
+@media (max-width:991px){
+    html{
+        font-size: 50%;
+    }
+    .banner-section{
+        & .navbar{
+            @include mediaqyery-nav(0rem);
+        }
+        & .navbar.fixed{
+            height: auto;
+        }
+        & .main-section{
+            padding: 7rem 0;
+            & .title-section{
+                padding: 5rem 0 10rem;
+                & h1{
+                    font-size: 9rem;
+                }
+            }
+        }
+    }
+    & .career{
+        & .career-content{
+            & .nav{
+                top: 12rem;
+                & .nav-link:focus{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+@media (max-width:768px){
+    html{
+        font-size: 45%;
+    }
+    .banner-section{
+        & .main-section{
+            padding: 5rem !important;
+            & .title-section{
+                padding: 5rem 0 !important;
+                & h1{
+                    font-size: 8rem;
+                }
+            }
+        }
+      }
+      .contact_media-section{
+        & .media-content{
+            width: 100%;
+            & h1{
+                font-size: 4rem;
+            }
+            & .img-box-hide{
+                display: block;
+            }
+            & .Mbox{
+                & h3{
+                    font-size: 3rem !important;
+                    margin-bottom: 5rem;
+                }
+                & p{
+                    font-size: 2.5rem !important;
+                }
+            }
+            & .img-box{
+                display: none;
+            }
+        }
+    }
+    .footer{
+        @include mediaquery-footer-section;
+    }
+}
+@media (max-width:600px){
+    .banner-section{
+        & .main-section{
+            & .title-section{
+                h1{
+                    font-size: 7rem;
+                }
+            }
+        }
+    }
+}
+@media (max-width:590px){
+    .contact_media-section{
+        & .media-content{
+            width: 90%;
+            & .img-box-hide{
+                margin-top: 7rem;
+            }
+        }
+    }
+}
+@media (max-width:568px){
+     html{
+         font-size: 40%;
+     }
+     .image-section{
+         & .img-content{
+             @include width90percent;
+         }
+     }
+     .career{
+         & .career-content{
+             margin-left: 0rem !important;
+             & .career-info{
+                 padding: 0rem 1rem 5rem !important;
+             }
+         }
+     }
+}
+// @media (max-width:400px){
+//     .banner-section{
+//         & .main-section{
+//             & .title-section{
+//                 & h1{
+//                     font-size: 5rem;
+//                 }
+//             }
+//         }
+//     }
+// }
